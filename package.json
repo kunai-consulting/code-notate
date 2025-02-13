@@ -1,0 +1,14 @@
+{
+	"name": "auto-api-root",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "pnpm -C ./playground dev",
+		"build": "pnpm -C ./auto-api build",
+		"preview": "pnpm -C ./playground preview"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
