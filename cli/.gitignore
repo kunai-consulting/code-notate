@@ -1,0 +1,12 @@
+*-debug.log
+*-error.log
+**/.DS_Store
+/.idea
+/dist
+/tmp
+/node_modules
+oclif.manifest.json
+auto-api.config.js
+
+yarn.lock
+package-lock.json
