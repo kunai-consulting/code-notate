@@ -1,0 +1,24 @@
+{
+  "name": "@kunai-consulting/auto-api-core",
+  "version": "0.0.1",
+  "description": "Types and utility functions for Auto API",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib-types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "types": "./lib-types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
