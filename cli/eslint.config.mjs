@@ -14,7 +14,8 @@ export default [
     rules: {
       '@stylistic/padding-line-between-statements': 'off',
       'perfectionist/sort-classes': 'warn',
-      'perfectionist/sort-object-types': 'warn'
+      'perfectionist/sort-object-types': 'warn',
+      'perfectionist/sort-objects': 'warn'
     }
   }
 ]

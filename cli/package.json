@@ -6,6 +6,8 @@
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "dev": "pnpm build && ./bin/dev.js gen-api",
+    "gen-api": "pnpm build && ./bin/dev.js gen-api",
+    "gen-docs": "pnpm build && ./bin/dev.js gen-docs",
     "lint": "eslint",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "pnpm run lint",

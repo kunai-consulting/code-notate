@@ -14,7 +14,7 @@ import generateKeyboardDocs from "./generate-keyboard-docs.js";
 import generateTypeDocs from "./generate-type-docs.js";
 
 export async function generateApi(command: Command, config: AutoApiConfig): Promise<void> {
-  command.log("Let's generate the API")
+  command.log("Let's generate the API");
   try {
     const componentPath = resolve(process.cwd(), config.sourceFolder);
 
