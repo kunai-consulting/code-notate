@@ -1,7 +1,5 @@
 import fs from "node:fs";
 
-import { DocsFilePaths } from "../../types/docs-file-paths.js";
-
 export default async function getExampleFiles(examplesPath: string) {
   return fs
     .readdirSync(examplesPath)

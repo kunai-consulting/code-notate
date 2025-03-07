@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { resolve } from "node:path";
-import ts from "typescript";
+import ts, { SourceFile } from "typescript";
 
 import type {
   AnatomyItem,
@@ -10,7 +10,9 @@ import type {
   SubComponents
 } from "../types/types.js";
 
-export function getSourceFile(path: string) {
+export function getSourceFile(path: string): SourceFile {
+  // ts.createSourceFile creates and returns an in-memory representation of the source file.
+  // It does not create a new file on disk.
   return ts.createSourceFile(
     path,
     fs.readFileSync(path, "utf-8"),

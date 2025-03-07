@@ -15,6 +15,5 @@ export default async function generateWithClaude(prompt: string, config: AutoApi
     ],
     model: config.aiModel
   });
-  console.log("Response content", response.content);
   return response.content[0]?.type === "text" ? JSON.parse(response.content[0].text) : [];
 };

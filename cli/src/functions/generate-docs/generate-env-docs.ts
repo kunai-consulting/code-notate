@@ -1,5 +1,5 @@
-import generateDocumentationWithAnthropic from "./generate-documentation-with-anthropic.js";
 import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import generateDocumentationWithAnthropic from "./generate-documentation-with-anthropic.js";
 
 export default async function generateEnvDocs(promptPrefix: string, config: AutoApiConfig) {
   const prompt = `${promptPrefix}

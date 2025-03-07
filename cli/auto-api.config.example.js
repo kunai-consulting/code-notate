@@ -5,5 +5,6 @@ export default {
   documentationFolder: "./docs",
   formatCommand: "pnpm format",
   formatDirectory: ".",
+  framework: "Qwik",
   sourceFolder: "./src",
 };

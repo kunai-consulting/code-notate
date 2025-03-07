@@ -38,6 +38,7 @@ export async function generateApi(command: Command, config: AutoApiConfig): Prom
     command.log("Analyzing with Claude...");
     // Get existing metadata if it exists
     const metadataPath = resolve(componentPath, "metadata.json");
+    // the following is commented out because it is not used yet
     // let existingMetadata = {};
     // if (fs.existsSync(metadataPath)) {
     //   existingMetadata = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
@@ -109,32 +110,39 @@ export async function generateApi(command: Command, config: AutoApiConfig): Prom
       fs.writeFileSync(filePath, fileContent.join("\n"), "utf8");
     }
 
-    // Handle public type transformations
-    for (const block of publicTypeAnalysis) {
-      const filePath = resolve(componentPath, block.filename);
-      const sourceFile = getSourceFile(filePath);
-      const transformedCode = transformPublicTypes(sourceFile, block.comments);
-      fs.writeFileSync(filePath, transformedCode, "utf8");
-      diffReport += `\nTransformed types in ${block.filename}\n`;
+    // Qwik-specific transformations
+    if(config.framework === "Qwik") {
+      // Handle public type transformations
+      for (const block of publicTypeAnalysis) {
+        console.log('block', block);
+        const filePath = resolve(componentPath, block.filename);
+        const sourceFile = getSourceFile(filePath);
+        const transformedCode = transformPublicTypes(sourceFile, block.comments);
+        fs.writeFileSync(filePath, transformedCode, "utf8");
+        diffReport += `\nTransformed types in ${block.filename}\n`;
+      }
     }
 
+
     // 2. Handle keyboard interactions separately
-    // command.log("Updating API with keyboard interactions...");
-    // const apiPath = resolve(process.cwd(), `src/routes/${route}/auto-api/api.ts`);
-    //
-    // const apiContent = fs.readFileSync(apiPath, "utf8");
-    // const apiMatch = apiContent.match(/export const api = ({[\s\S]*});/);
-    // if (apiMatch) {
-    //   const api = JSON.parse(apiMatch[1]);
-    //   // Only update keyboard interactions, don't touch types
-    //   api.keyboardInteractions = keyboardDocs;
-    //   api.features = featureList.features;
-    //   fs.writeFileSync(
-    //     apiPath,
-    //     `export const api = ${JSON.stringify(api, null, 2)};`,
-    //     "utf8"
-    //   );
-    // }
+    // (Does this belong here or in gen-docs?)
+    command.log("Updating API with keyboard interactions...");
+    const route = config.sourceFolder.split("/").pop()!;
+    const apiPath = resolve(process.cwd(), `${config.documentationFolder}/${route}/auto-api/api.ts`);
+
+    const apiContent = fs.readFileSync(apiPath, "utf8");
+    const apiMatch = apiContent.match(/export const api = ({[\s\S]*});/);
+    if (apiMatch) {
+      const api = JSON.parse(apiMatch[1]);
+      // Only update keyboard interactions, don't touch types
+      api.keyboardInteractions = keyboardDocs;
+      api.features = featureList.features;
+      fs.writeFileSync(
+        apiPath,
+        `export const api = ${JSON.stringify(api, null, 2)};`,
+        "utf8"
+      );
+    }
 
     // Perform formatting if specified
     if(config.formatCommand) {

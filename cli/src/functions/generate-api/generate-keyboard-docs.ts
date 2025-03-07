@@ -1,9 +1,10 @@
 import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
 import { FileWithContent } from "../../types/file-with-content.js";
+import { KeyInteractionComment } from "../../types/key-interaction-comment.js";
 import getFilesListAsMultilineString from "../get-files-list-as-multiline-string.js";
 import generateWithClaude from "./generate-with-claude.js";
 
-export default function generateKeyboardDocs(files: FileWithContent[], config: AutoApiConfig) {
+export default function generateKeyboardDocs(files: FileWithContent[], config: AutoApiConfig): Promise<KeyInteractionComment[]> {
   const prompt = `You are a JSON-only API. Your response must be PURE JSON with no other text.
       Required output format: [
         { "key": "Enter", "comment": "When focus is on the input, selects the focused item" }

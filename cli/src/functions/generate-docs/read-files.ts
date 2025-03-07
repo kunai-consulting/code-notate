@@ -7,11 +7,10 @@ export default async function readFiles(path: string) {
 
     if (stats.isDirectory()) {
       const files = fs.readdirSync(path);
-      const contents = files
+      return files
         .filter((file: string) => file.endsWith(".ts") || file.endsWith(".tsx"))
         .map((file: string) => fs.readFileSync(resolve(path, file), "utf8"))
         .join("\n");
-      return contents;
     }
     return fs.readFileSync(path, "utf8");
   } catch (error) {

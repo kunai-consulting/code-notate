@@ -1,7 +1,4 @@
-export type CommentsInFile = {
+export type CommentsInFile<T> = {
   filename: string;
-  comments: {
-    targetLine: string;
-    comment: string[];
-  }[];
+  comments: T[];
 };

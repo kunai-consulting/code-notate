@@ -57,16 +57,6 @@ The JSDoc type annotation provides full TypeScript type checking and autocomplet
 <!-- commands -->
 * [`aac gen-api [FOLDER]`](#aac-gen-api-folder)
 * [`aac help [COMMAND]`](#aac-help-command)
-* [`aac plugins`](#aac-plugins)
-* [`aac plugins add PLUGIN`](#aac-plugins-add-plugin)
-* [`aac plugins:inspect PLUGIN...`](#aac-pluginsinspect-plugin)
-* [`aac plugins install PLUGIN`](#aac-plugins-install-plugin)
-* [`aac plugins link PATH`](#aac-plugins-link-path)
-* [`aac plugins remove [PLUGIN]`](#aac-plugins-remove-plugin)
-* [`aac plugins reset`](#aac-plugins-reset)
-* [`aac plugins uninstall [PLUGIN]`](#aac-plugins-uninstall-plugin)
-* [`aac plugins unlink [PLUGIN]`](#aac-plugins-unlink-plugin)
-* [`aac plugins update`](#aac-plugins-update)
 
 ## `aac gen-api [FOLDER]`
 
