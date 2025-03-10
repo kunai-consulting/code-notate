@@ -22,6 +22,7 @@ export async function generateDocs(command: Command, config: AutoApiConfig) {
     console.log("paths", paths);
 
     const exampleFiles = await getExampleFiles(paths.examplesPath);
+    command.log("Found", exampleFiles.length, "example files");
     command.log("Reading component files...");
     const [formattedExamples, formattedComponents, formattedAPI] =
       await Promise.all([
