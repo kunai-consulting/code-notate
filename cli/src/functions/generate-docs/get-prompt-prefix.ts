@@ -1,4 +1,7 @@
-export default function getPromptPrefix(currentDocs: string, exampleFiles: string[], formattedExamples: string, formattedComponents: string, formattedAPI: string): string {
+import { PromptPrefixInput } from "../../types/prompt-prefix-input.js";
+
+export default function getPromptPrefix(promptPrefixInput: PromptPrefixInput): string {
+  const {currentDocs, exampleFiles, formattedExamples, formattedComponents, formattedAPI} = promptPrefixInput;
   return `
             ${currentDocs === "" ? "" : `Documentation written for this component so far: ${currentDocs}`}
             
