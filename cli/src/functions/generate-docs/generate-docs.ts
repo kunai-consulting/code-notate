@@ -15,7 +15,7 @@ import validateShowcase from "./validate-showcase.js";
 import writeDocs from "./write-docs.js";
 import writeLogFile from "./write-log-file.js";
 
-export async function generateDocs(command: Command, config: AutoApiConfig) {
+export default async function generateDocs(command: Command, config: AutoApiConfig) {
   command.log("Let's generate the Docs");
   try {
     const paths = await getFilePaths(config);

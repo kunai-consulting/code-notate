@@ -1,7 +1,7 @@
 import { PromptPrefixInput } from "../../types/prompt-prefix-input.js";
 
 export default function getPromptPrefix(promptPrefixInput: PromptPrefixInput): string {
-  const {currentDocs, exampleFiles, formattedExamples, formattedComponents, formattedAPI} = promptPrefixInput;
+  const {currentDocs, exampleFiles, formattedAPI, formattedComponents, formattedExamples} = promptPrefixInput;
   return `
             ${currentDocs === "" ? "" : `Documentation written for this component so far: ${currentDocs}`}
             

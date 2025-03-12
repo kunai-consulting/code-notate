@@ -2,7 +2,7 @@ import {Args, Command, Flags} from '@oclif/core'
 import * as dotenv from 'dotenv';
 
 import { generateApi } from "../../functions/generate-api/generate-api.js";
-import { loadConfig } from "../../functions/load-config.js";
+import loadConfig from "../../functions/load-config.js";
 
 export default class GenAPI extends Command {
   protected get ctor(): typeof Command {

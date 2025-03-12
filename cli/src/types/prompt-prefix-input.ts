@@ -1,7 +1,7 @@
 export type PromptPrefixInput = {
   currentDocs: string,
   exampleFiles: string[],
-  formattedExamples: string,
+  formattedAPI: string,
   formattedComponents: string,
-  formattedAPI: string
+  formattedExamples: string
 };

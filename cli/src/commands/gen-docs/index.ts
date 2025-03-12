@@ -1,8 +1,8 @@
 import {Args, Command, Flags} from '@oclif/core'
 import * as dotenv from 'dotenv';
 
-import { generateDocs } from "../../functions/generate-docs/generate-docs.js";
-import { loadConfig } from "../../functions/load-config.js";
+import generateDocs from "../../functions/generate-docs/generate-docs.js";
+import loadConfig from "../../functions/load-config.js";
 
 export default class GenDocs extends Command {
   protected get ctor(): typeof Command {

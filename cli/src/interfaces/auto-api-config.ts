@@ -9,7 +9,8 @@ export interface AutoApiConfig {
   documentationFolder: string;
   /**
    * The command to use to format the code.
-   * Helps ensure that any code the tool touches is formatted correctly. */
+   * Helps ensure that any code the tool touches is formatted correctly.
+   **/
   formatCommand?: string;
   /** The directory where the format command can be run */
   formatDirectory?: string;

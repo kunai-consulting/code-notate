@@ -4,8 +4,7 @@ export default function validateShowcase(content: string, availableExamples: str
   let skipUntilNextHeader = false;
   let prevLevel = 1;
 
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+  for (const line of lines) {
     const showcaseMatch = line.match(/<Showcase name="([^"]+)"/);
 
     if (showcaseMatch) {
@@ -35,5 +34,6 @@ export default function validateShowcase(content: string, availableExamples: str
   }
 
   const result = validatedLines.join("\n");
+  // eslint-disable-next-line unicorn/prefer-string-replace-all
   return result.replace(/\n{2,}/g, "\n\n");
 }

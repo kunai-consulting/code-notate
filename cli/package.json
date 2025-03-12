@@ -12,8 +12,9 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "pnpm run lint",
     "prepack": "oclif manifest && oclif readme",
-    "run":"pnpm build && ./bin/run.js gen-api",
-    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "run": "pnpm build && ./bin/run.js gen-api",
+    "test": "vitest --no-watch",
+    "test-watch": "vitest",
     "version": "oclif readme && git add README.md"
   },
   "types": "dist/index.d.ts",
@@ -23,7 +24,7 @@
   "bugs": "https://github.com/kunai-consulting/auto-api/issues",
   "dependencies": {
     "@anthropic-ai/sdk": "0.37.0",
-    "@kunai-consulting/auto-api-core": "workspace:*",
+    "@kunai-consulting/auto-api-core": "file:../core",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
@@ -36,15 +37,14 @@
     "@types/chai": "^4",
     "@types/mocha": "^10",
     "@types/node": "^18",
-    "chai": "^4",
     "eslint": "^9",
     "eslint-config-oclif": "^6",
     "eslint-config-prettier": "^10",
-    "mocha": "^10",
     "oclif": "^4",
     "shx": "^0.3.3",
     "ts-node": "^10",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.0.8"
   },
   "engines": {
     "node": ">=18.0.0"
