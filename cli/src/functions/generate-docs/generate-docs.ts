@@ -82,7 +82,7 @@ export default async function generateDocs(command: Command, config: AutoApiConf
     command.log("Evaluating documentation...");
 
     const mdxContent = [
-      'import { api } from "./auto-api/api";',
+      'import api from "./auto-api/api.json";',
       initialDocs,
       stateDocs,
       configDocs.includes("##") ? configDocs : "",

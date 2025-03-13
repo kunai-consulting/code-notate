@@ -6,6 +6,7 @@ import { resolve } from "node:path";
 
 import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
 import { FileWithContent } from "../../types/file-with-content.js";
+import getFileContent from "../get-file-content.js";
 import analyzeTypesForPublic from "./analyze-types-for-public.js";
 import generateComponentDocs from "./generate-component-docs.js";
 import generateDataAttributeDocs from "./generate-data-attribute-docs.js";
@@ -128,21 +129,25 @@ export async function generateApi(command: Command, config: AutoApiConfig): Prom
     // (Does this belong here or in gen-docs?)
     command.log("Updating API with keyboard interactions...");
     const route = config.sourceFolder.split("/").pop()!;
-    const apiPath = resolve(process.cwd(), `${config.documentationFolder}/${route}/auto-api/api.ts`);
+    const apiPath = resolve(process.cwd(), `${config.documentationFolder}/${route}/auto-api/api.json`);
 
-    const apiContent = fs.readFileSync(apiPath, "utf8");
-    const apiMatch = apiContent.match(/export const api = ({[\s\S]*});/);
-    if (apiMatch) {
-      const api = JSON.parse(apiMatch[1]);
-      // Only update keyboard interactions, don't touch types
-      api.keyboardInteractions = keyboardDocs;
-      api.features = featureList.features;
-      fs.writeFileSync(
-        apiPath,
-        `export const api = ${JSON.stringify(api, null, 2)};`,
-        "utf8"
-      );
+    const apiContent = getFileContent(apiPath, true);
+    let api;
+    try {
+      api = JSON.parse(apiContent);
     }
+    catch (error) {
+      console.warn("Error parsing API file:", error);
+      api = {};
+    }
+    // Update keyboard interactions and features
+    api.keyboardInteractions = keyboardDocs;
+    api.features = featureList.features;
+    fs.writeFileSync(
+      apiPath,
+      JSON.stringify(api, null, 2),
+      "utf8"
+    );
 
     // Perform formatting if specified
     if(config.formatCommand) {
