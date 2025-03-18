@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "pnpm -C ./core build && pnpm -C ./cli build"
+		"build": "pnpm -C ./core build && pnpm -C ./cli build",
+    "publish": "pnpm -C ./core publish && pnpm -C ./cli publish"
 	},
 	"keywords": [],
 	"author": "",

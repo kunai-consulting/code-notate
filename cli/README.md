@@ -132,7 +132,7 @@ _See code: [src/commands/gen-docs/index.ts](https://github.com/kunai-consulting/
 
 ## `help [COMMAND]`
 
-Display help for an cn command.
+Display help for a cn command.
 
 ```
 USAGE

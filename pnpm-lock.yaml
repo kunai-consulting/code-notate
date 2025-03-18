@@ -14,7 +14,7 @@ importers:
         specifier: 0.37.0
         version: 0.37.0
       '@kunai-consulting/code-notate-core':
-        specifier: file:../core
+        specifier: workspace:*
         version: link:../core
       '@oclif/core':
         specifier: ^4

@@ -1,6 +1,6 @@
 {
   "name": "@kunai-consulting/code-notate-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Types and utility functions for CodeNotate",
   "type": "module",
   "main": "./lib/index.js",
@@ -12,7 +12,8 @@
     }
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "release": "pnpm build && pnpm publish --access public"
   },
   "keywords": [],
   "author": "",
