@@ -1,10 +1,10 @@
 import fs from "node:fs";
 
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import { DocsFilePaths } from "../../types/docs-file-paths.js";
 import generateDocumentationWithAnthropic from "./generate-documentation-with-anthropic.js";
 
-export default async function generateInitialDocs(promptPrefix: string, paths: DocsFilePaths, config: AutoApiConfig) {
+export default async function generateInitialDocs(promptPrefix: string, paths: DocsFilePaths, config: CodeNotateConfig) {
   const exampleFiles = fs
     .readdirSync(paths.examplesPath)
     .filter((file) => file.endsWith(".tsx") && !file.includes("-test"))

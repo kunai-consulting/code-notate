@@ -1,7 +1,7 @@
 {
-  "name": "@kunai-consulting/auto-api-core",
+  "name": "@kunai-consulting/code-notate-core",
   "version": "0.0.1",
-  "description": "Types and utility functions for Auto API",
+  "description": "Types and utility functions for CodeNotate",
   "type": "module",
   "main": "./lib/index.js",
   "types": "./lib-types/index.d.ts",

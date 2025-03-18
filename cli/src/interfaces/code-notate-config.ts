@@ -1,6 +1,6 @@
 import { AIProvider } from "../types/ai-provider.js";
 
-export interface AutoApiConfig {
+export interface CodeNotateConfig {
   /** The LLM model to use */
   aiModel: string;
   /** The LLM provider. Currently only Anthropic is supported */
@@ -10,7 +10,7 @@ export interface AutoApiConfig {
   /**
    * The command to use to format the code.
    * Helps ensure that any code the tool touches is formatted correctly.
-   **/
+   */
   formatCommand?: string;
   /** The directory where the format command can be run */
   formatDirectory?: string;

@@ -1,7 +1,7 @@
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import generateDocumentationWithAnthropic from "./generate-documentation-with-anthropic.js";
 
-export default async function generateConfigDocs(promptPrefix: string, config: AutoApiConfig) {
+export default async function generateConfigDocs(promptPrefix: string, config: CodeNotateConfig) {
   const prompt =`${promptPrefix}
   
           You are now writing the documentation specific to the configuration of the component.

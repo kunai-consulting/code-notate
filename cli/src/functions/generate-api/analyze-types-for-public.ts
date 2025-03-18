@@ -1,10 +1,10 @@
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import { CommentsInFile } from "../../types/comments-in-file.js";
 import { FileWithContent } from "../../types/file-with-content.js";
 import getFilesListAsMultilineString from "../get-files-list-as-multiline-string.js";
 import generateWithClaude from "./generate-with-claude.js";
 
-export default function analyzeTypesForPublic(files: FileWithContent[], config: AutoApiConfig):
+export default function analyzeTypesForPublic(files: FileWithContent[], config: CodeNotateConfig):
   Promise<CommentsInFile<{targetLine: string; shouldBePublic: boolean; reason: string; dependencies: string[]}>[]> {
   const prompt = `You are a JSON-only API. Your response must be PURE JSON with no other text.
       Required output format: [{ 

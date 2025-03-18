@@ -1,6 +1,6 @@
-import { AutoApiConfig } from "../../src";
+import { CodeNotateConfig } from "../../src";
 
-export const EXAMPLE_CONFIG: AutoApiConfig = {
+export const EXAMPLE_CONFIG: CodeNotateConfig = {
   aiModel: "claude-3-5-sonnet-20241022",
   aiProvider: "anthropic",
   documentationFolder: "./docs",

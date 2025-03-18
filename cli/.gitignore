@@ -6,9 +6,9 @@
 /tmp
 /node_modules
 oclif.manifest.json
-auto-api.config.js
+code-notate.config.js
 
 yarn.lock
 package-lock.json
 
-.auto-api
+.code-notate

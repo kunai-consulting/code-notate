@@ -1,5 +1,5 @@
 {
-  "name": "@kunai-consulting/auto-api-cli",
+  "name": "@kunai-consulting/code-notate",
   "description": "CLI tools for automatically documenting your code",
   "version": "0.0.0",
   "author": "Kunai Consulting",
@@ -19,12 +19,12 @@
   },
   "types": "dist/index.d.ts",
   "bin": {
-    "aac": "./bin/run.js"
+    "cn": "./bin/run.js"
   },
-  "bugs": "https://github.com/kunai-consulting/auto-api/issues",
+  "bugs": "https://github.com/kunai-consulting/code-notate/issues",
   "dependencies": {
     "@anthropic-ai/sdk": "0.37.0",
-    "@kunai-consulting/auto-api-core": "file:../core",
+    "@kunai-consulting/code-notate-core": "file:../core",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
@@ -52,7 +52,7 @@
     "./dist",
     "./oclif.manifest.json"
   ],
-  "homepage": "https://github.com/kunai-consulting/auto-api",
+  "homepage": "https://github.com/kunai-consulting/code-notate",
   "keywords": [
     "oclif"
   ],
@@ -60,8 +60,8 @@
   "main": "dist/index.js",
   "type": "module",
   "oclif": {
-    "bin": "aac",
-    "dirname": "aac",
+    "bin": "cn",
+    "dirname": "cn",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
@@ -74,5 +74,5 @@
       }
     }
   },
-  "repository": "kunai-consulting/auto-api"
+  "repository": "kunai-consulting/code-notate"
 }

@@ -1,12 +1,10 @@
 {
-	"name": "auto-api-root",
+	"name": "code-notate-root",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "pnpm -C ./playground dev",
-		"build": "pnpm -C ./auto-api build",
-		"preview": "pnpm -C ./playground preview"
+		"build": "pnpm -C ./core build && pnpm -C ./cli build"
 	},
 	"keywords": [],
 	"author": "",

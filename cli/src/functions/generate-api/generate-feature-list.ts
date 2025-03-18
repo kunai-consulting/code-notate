@@ -1,10 +1,10 @@
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import { FeatureList } from "../../types/feature-list.js";
 import { FileWithContent } from "../../types/file-with-content.js";
 import getFilesListAsMultilineString from "../get-files-list-as-multiline-string.js";
 import generateWithClaude from "./generate-with-claude.js";
 
-export default function generateFeatureList(files: FileWithContent[], config: AutoApiConfig): Promise<FeatureList> {
+export default function generateFeatureList(files: FileWithContent[], config: CodeNotateConfig): Promise<FeatureList> {
   const prompt = `You are a JSON-only API. Your response must be PURE JSON with no other text.
       Required output format: { "features": ["Feature 1", "Feature 2", ...] }
 

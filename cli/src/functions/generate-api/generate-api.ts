@@ -1,11 +1,12 @@
-import { getSourceFile, transformPublicTypes } from "@kunai-consulting/auto-api-core";
+import { getSourceFile, transformPublicTypes } from "@kunai-consulting/code-notate-core";
 import { Command } from "@oclif/core";
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import { resolve } from "node:path";
 
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import { FileWithContent } from "../../types/file-with-content.js";
+import { KeyInteractionComment } from "../../types/key-interaction-comment.js";
 import getFileContent from "../get-file-content.js";
 import analyzeTypesForPublic from "./analyze-types-for-public.js";
 import generateComponentDocs from "./generate-component-docs.js";
@@ -14,7 +15,7 @@ import generateFeatureList from "./generate-feature-list.js";
 import generateKeyboardDocs from "./generate-keyboard-docs.js";
 import generateTypeDocs from "./generate-type-docs.js";
 
-export async function generateApi(command: Command, config: AutoApiConfig): Promise<void> {
+export async function generateApi(command: Command, config: CodeNotateConfig): Promise<void> {
   command.log("Let's generate the API");
   try {
     const componentPath = resolve(process.cwd(), config.sourceFolder);
@@ -129,17 +130,19 @@ export async function generateApi(command: Command, config: AutoApiConfig): Prom
     // (Does this belong here or in gen-docs?)
     command.log("Updating API with keyboard interactions...");
     const route = config.sourceFolder.split("/").pop()!;
-    const apiPath = resolve(process.cwd(), `${config.documentationFolder}/${route}/auto-api/api.json`);
+    const apiPath = resolve(process.cwd(), `${config.documentationFolder}/${route}/code-notate/api.json`);
 
     const apiContent = getFileContent(apiPath, true);
-    let api;
-    try {
-      api = JSON.parse(apiContent);
+    let api: { keyboardInteractions?: KeyInteractionComment[]; features?: string[] } = {};
+    if(apiContent.length > 0) {
+      try {
+        api = JSON.parse(apiContent);
+      }
+      catch (error) {
+        console.warn("Error parsing API file:", error);
+      }
     }
-    catch (error) {
-      console.warn("Error parsing API file:", error);
-      api = {};
-    }
+
     // Update keyboard interactions and features
     api.keyboardInteractions = keyboardDocs;
     api.features = featureList.features;

@@ -1,5 +1,3 @@
 packages:
-  - auto-api
   - cli
   - core
-  - playground
