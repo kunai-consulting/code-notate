@@ -1,7 +1,7 @@
 {
-  "name": "@kunai-consulting/auto-api-cli",
+  "name": "@kunai-consulting/code-notate",
   "description": "CLI tools for automatically documenting your code",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "author": "Kunai Consulting",
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
@@ -12,6 +12,7 @@
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "pnpm run lint",
     "prepack": "oclif manifest && oclif readme",
+    "release": "pnpm build && pnpm publish --access public",
     "run": "pnpm build && ./bin/run.js gen-api",
     "test": "vitest --no-watch",
     "test-watch": "vitest",
@@ -19,12 +20,12 @@
   },
   "types": "dist/index.d.ts",
   "bin": {
-    "aac": "./bin/run.js"
+    "cn": "./bin/run.js"
   },
-  "bugs": "https://github.com/kunai-consulting/auto-api/issues",
+  "bugs": "https://github.com/kunai-consulting/code-notate/issues",
   "dependencies": {
     "@anthropic-ai/sdk": "0.37.0",
-    "@kunai-consulting/auto-api-core": "file:../core",
+    "@kunai-consulting/code-notate-core": "workspace:*",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
@@ -52,7 +53,7 @@
     "./dist",
     "./oclif.manifest.json"
   ],
-  "homepage": "https://github.com/kunai-consulting/auto-api",
+  "homepage": "https://github.com/kunai-consulting/code-notate",
   "keywords": [
     "oclif"
   ],
@@ -60,8 +61,8 @@
   "main": "dist/index.js",
   "type": "module",
   "oclif": {
-    "bin": "aac",
-    "dirname": "aac",
+    "bin": "cn",
+    "dirname": "cn",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
@@ -74,5 +75,5 @@
       }
     }
   },
-  "repository": "kunai-consulting/auto-api"
+  "repository": "kunai-consulting/code-notate"
 }

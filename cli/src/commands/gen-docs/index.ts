@@ -18,7 +18,7 @@ export default class GenDocs extends Command {
     `<%= config.bin %> <%= command.id %>`
   ]
   static flags = {
-    configPath: Flags.string({char: 'c', description: 'location of the auto-api.config.js file', required: false}),
+    configPath: Flags.string({char: 'c', description: 'location of the code-notate.config.js file', required: false}),
   }
 
   async run(): Promise<void> {

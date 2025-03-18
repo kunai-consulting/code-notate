@@ -1,6 +1,6 @@
 import { Command } from "@oclif/core";
 
-import { AutoApiConfig } from "../../interfaces/auto-api-config.js";
+import { CodeNotateConfig } from "../../interfaces/code-notate-config.js";
 import { PromptPrefixInput } from "../../types/prompt-prefix-input.js";
 import generateConfigDocs from "./generate-config-docs.js";
 import generateEnvDocs from "./generate-env-docs.js";
@@ -15,7 +15,7 @@ import validateShowcase from "./validate-showcase.js";
 import writeDocs from "./write-docs.js";
 import writeLogFile from "./write-log-file.js";
 
-export default async function generateDocs(command: Command, config: AutoApiConfig) {
+export default async function generateDocs(command: Command, config: CodeNotateConfig) {
   command.log("Let's generate the Docs");
   try {
     const paths = await getFilePaths(config);
@@ -82,7 +82,7 @@ export default async function generateDocs(command: Command, config: AutoApiConf
     command.log("Evaluating documentation...");
 
     const mdxContent = [
-      'import api from "./auto-api/api.json";',
+      'import api from "./code-notate/api.json";',
       initialDocs,
       stateDocs,
       configDocs.includes("##") ? configDocs : "",
